@@ -1,3 +1,26 @@
-message Example{
-    required int32 val = 1;
+syntax = "proto2";
+
+enum C2AMsgType{
+    PING = 0;
+    DXDY = 1;
+    LASER = 2;
+}
+
+enum A2CMsgType{
+    PING_R = 0;
+    ACK = 1;
+}
+
+message CoralToATMega{
+    required C2AMsgType message_type    = 1;
+    optional int32 dx                   = 2;
+    optional int32 dy                   = 3;
+    optional int32 pingnum              = 4;
+    optional bool laser_on              = 5;
+}
+
+message ATMegaToCoral{
+    required C2AMsgType message_type    = 1;
+    required int32 ack                  = 2;
+    optional int32 ping_response        = 3;
 }
