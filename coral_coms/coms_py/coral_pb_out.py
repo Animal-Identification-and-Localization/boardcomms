@@ -12,6 +12,9 @@
 from periphery import SysfsGPIO
 from periphery import GPIO
 import time
+import boardcomms_pb2
+
+
 
 # led = GPIO("/dev/gpiochip0", 22 ,"out") 
 led = GPIO(
