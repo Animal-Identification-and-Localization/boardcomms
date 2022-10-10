@@ -10,6 +10,10 @@
 #endif
 
 /* Enum definitions */
+typedef enum _GardianI2C {
+    GardianI2C_ATMEGA = 1
+} GardianI2C;
+
 typedef enum _C2AMsgType {
     C2AMsgType_PING = 0,
     C2AMsgType_DXDY = 1,
@@ -43,6 +47,10 @@ typedef struct _CoralToATMega {
 
 
 /* Helper constants for enums */
+#define _GardianI2C_MIN GardianI2C_ATMEGA
+#define _GardianI2C_MAX GardianI2C_ATMEGA
+#define _GardianI2C_ARRAYSIZE ((GardianI2C)(GardianI2C_ATMEGA+1))
+
 #define _C2AMsgType_MIN C2AMsgType_PING
 #define _C2AMsgType_MAX C2AMsgType_LASER
 #define _C2AMsgType_ARRAYSIZE ((C2AMsgType)(C2AMsgType_LASER+1))

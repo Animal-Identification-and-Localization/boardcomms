@@ -1,5 +1,9 @@
 syntax = "proto2";
 
+enum GardianI2C{
+    ATMEGA = 1;
+}
+
 enum C2AMsgType{
     PING = 0;
     DXDY = 1;

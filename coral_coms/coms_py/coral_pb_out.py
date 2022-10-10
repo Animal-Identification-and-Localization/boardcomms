@@ -14,6 +14,9 @@ from periphery import GPIO
 from periphery import I2C
 import time
 
+import boardcomms_pb2
+
+
 if 0:
     # led = GPIO("/dev/gpiochip0", 22 ,"out") 
     led = GPIO(
@@ -42,6 +45,16 @@ if 0:
 
 i2c1 = I2C("/dev/i2c-3")
 # Read byte at address 0x100 of EEPROM at 0x50
+
+msg = boardcomms_pb2.CoralToATMega()
+msg.message_type = boardcomms_pb2.C2AMsgType.DXDY
+msg.dx = 30
+msg.dy = 20
+
+msg_str = msg.SerializeToString()
+
+print(msg_str)
+
 for i in range(0,101):
     msgs = [I2C.Message([i, i, i]), I2C.Message([0x00], read=True)]
     i2c1.transfer(404, msgs)

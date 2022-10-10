@@ -20,9 +20,28 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='',
   syntax='proto2',
   serialized_options=None,
-  serialized_pb=_b('\n\x10\x62oardcomms.proto\"m\n\rCoralToATMega\x12!\n\x0cmessage_type\x18\x01 \x02(\x0e\x32\x0b.C2AMsgType\x12\n\n\x02\x64x\x18\x02 \x01(\x05\x12\n\n\x02\x64y\x18\x03 \x01(\x05\x12\x0f\n\x07pingnum\x18\x04 \x01(\x05\x12\x10\n\x08laser_on\x18\x05 \x01(\x08\"V\n\rATMegaToCoral\x12!\n\x0cmessage_type\x18\x01 \x02(\x0e\x32\x0b.C2AMsgType\x12\x0b\n\x03\x61\x63k\x18\x02 \x02(\x05\x12\x15\n\rping_response\x18\x03 \x01(\x05*+\n\nC2AMsgType\x12\x08\n\x04PING\x10\x00\x12\x08\n\x04\x44XDY\x10\x01\x12\t\n\x05LASER\x10\x02*!\n\nA2CMsgType\x12\n\n\x06PING_R\x10\x00\x12\x07\n\x03\x41\x43K\x10\x01')
+  serialized_pb=_b('\n\x10\x62oardcomms.proto\"m\n\rCoralToATMega\x12!\n\x0cmessage_type\x18\x01 \x02(\x0e\x32\x0b.C2AMsgType\x12\n\n\x02\x64x\x18\x02 \x01(\x05\x12\n\n\x02\x64y\x18\x03 \x01(\x05\x12\x0f\n\x07pingnum\x18\x04 \x01(\x05\x12\x10\n\x08laser_on\x18\x05 \x01(\x08\"V\n\rATMegaToCoral\x12!\n\x0cmessage_type\x18\x01 \x02(\x0e\x32\x0b.C2AMsgType\x12\x0b\n\x03\x61\x63k\x18\x02 \x02(\x05\x12\x15\n\rping_response\x18\x03 \x01(\x05*\x18\n\nGardianI2C\x12\n\n\x06\x41TMEGA\x10\x01*+\n\nC2AMsgType\x12\x08\n\x04PING\x10\x00\x12\x08\n\x04\x44XDY\x10\x01\x12\t\n\x05LASER\x10\x02*!\n\nA2CMsgType\x12\n\n\x06PING_R\x10\x00\x12\x07\n\x03\x41\x43K\x10\x01')
 )
 
+_GARDIANI2C = _descriptor.EnumDescriptor(
+  name='GardianI2C',
+  full_name='GardianI2C',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='ATMEGA', index=0, number=1,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=219,
+  serialized_end=243,
+)
+_sym_db.RegisterEnumDescriptor(_GARDIANI2C)
+
+GardianI2C = enum_type_wrapper.EnumTypeWrapper(_GARDIANI2C)
 _C2AMSGTYPE = _descriptor.EnumDescriptor(
   name='C2AMsgType',
   full_name='C2AMsgType',
@@ -44,8 +63,8 @@ _C2AMSGTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=219,
-  serialized_end=262,
+  serialized_start=245,
+  serialized_end=288,
 )
 _sym_db.RegisterEnumDescriptor(_C2AMSGTYPE)
 
@@ -67,12 +86,13 @@ _A2CMSGTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=264,
-  serialized_end=297,
+  serialized_start=290,
+  serialized_end=323,
 )
 _sym_db.RegisterEnumDescriptor(_A2CMSGTYPE)
 
 A2CMsgType = enum_type_wrapper.EnumTypeWrapper(_A2CMSGTYPE)
+ATMEGA = 1
 PING = 0
 DXDY = 1
 LASER = 2
@@ -188,6 +208,7 @@ _CORALTOATMEGA.fields_by_name['message_type'].enum_type = _C2AMSGTYPE
 _ATMEGATOCORAL.fields_by_name['message_type'].enum_type = _C2AMSGTYPE
 DESCRIPTOR.message_types_by_name['CoralToATMega'] = _CORALTOATMEGA
 DESCRIPTOR.message_types_by_name['ATMegaToCoral'] = _ATMEGATOCORAL
+DESCRIPTOR.enum_types_by_name['GardianI2C'] = _GARDIANI2C
 DESCRIPTOR.enum_types_by_name['C2AMsgType'] = _C2AMSGTYPE
 DESCRIPTOR.enum_types_by_name['A2CMsgType'] = _A2CMSGTYPE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
