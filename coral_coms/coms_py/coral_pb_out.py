@@ -47,7 +47,7 @@ i2c1 = I2C("/dev/i2c-3")
 # Read byte at address 0x100 of EEPROM at 0x50
 
 msg = boardcomms_pb2.CoralToATMega()
-msg.message_type = boardcomms_pb2.C2AMsgType.DXDY
+msg.message_type = boardcomms_pb2.DXDY
 msg.dx = 30
 msg.dy = 20
 
@@ -56,8 +56,8 @@ msg_str = msg.SerializeToString()
 print(msg_str)
 
 for i in range(0,101):
-    msgs = [I2C.Message([i, i, i]), I2C.Message([0x00], read=True)]
-    i2c1.transfer(404, msgs)
+    msgs = [I2C.Message(msg_str), I2C.Message([0x00], read=True)]
+    i2c1.transfer(boardcomms_pb2.ATMEGA, msgs)
 
 print("0x100: 0x{:02x}".format(msgs[1].data[0]))
 
