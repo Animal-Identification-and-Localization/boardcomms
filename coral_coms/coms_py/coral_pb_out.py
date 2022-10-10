@@ -42,7 +42,7 @@ import boardcomms_pb2
 #         led.write(False)
 #         led.close()
 
-def send_dx_dy(dx:int, dy:int, i2c="/dev/i2c-3")
+def send_dx_dy(dx:int, dy:int, i2c="/dev/i2c-3"):
     i2c1 = I2C(i2c)
     # Read byte at address 0x100 of EEPROM at 0x50
 
